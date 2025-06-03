@@ -1,17 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Conversor Pinnacle Surebet",
+  "name": "Pinnacle BR Link Converter",
   "version": "1.0",
-  "description": "Converte links da Pinnacle automaticamente quando uma aba for aberta.",
-  "permissions": ["tabs", "scripting"],
-  "host_permissions": [
-    "https://www.pinnacle.com/*"
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs"
   ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://www.pinnacle.com/*"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
   ]
 }

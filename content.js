@@ -3,7 +3,7 @@
   const destinoBase = "https://pinnacle.bet.br/sportsbook/standard/";
   const linkAtual = window.location.href;
 
-  // Se for qualquer link com domínio da Pinnacle internacional
+  // Converte apenas se for domínio pinnacle.com
   if (linkAtual.includes(dominioOrigem)) {
     const url = new URL(linkAtual);
     const pathCompleto = url.pathname;
@@ -13,7 +13,7 @@
     const possivelIdioma = pathParts[0];
 
     // Se realmente houver um idioma (como 'en', 'es', etc.), remove para recriar o restante da URL
-    if (possivelIdioma.length === 2) {
+    if (possivelIdioma && possivelIdioma.length === 2) {
       pathParts.shift(); // remove o idioma da URL
     }
 
