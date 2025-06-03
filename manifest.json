@@ -1,14 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Pinnacle Link Converter",
+  "name": "Conversor Pinnacle Surebet",
   "version": "1.0",
-  "description": "Converte automaticamente links internacionais da Pinnacle para o domínio brasileiro.",
+  "description": "Converte links da Pinnacle automaticamente quando uma aba for aberta.",
   "permissions": ["tabs", "scripting"],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "host_permissions": ["*://*.pinnacle.com/*"],
-  "action": {
-    "default_title": "Pinnacle Link Converter"
-  }
+  "host_permissions": [
+    "https://www.pinnacle.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.pinnacle.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
 }
