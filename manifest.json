@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Pinnacle Link Converter",
+  "version": "1.0",
+  "description": "Converte automaticamente links internacionais da Pinnacle para o domínio brasileiro.",
+  "permissions": ["tabs", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["*://*.pinnacle.com/*"],
+  "action": {
+    "default_title": "Pinnacle Link Converter"
+  }
+}
